@@ -4,8 +4,6 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'language' => 'ru',
-    'vendorPath' => '../../vendor',
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -16,8 +14,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'Z-fLu1J9mturY9TcHiTeKLGvuVQcO76y',
-            'baseUrl' => '',
+            'cookieValidationKey' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -46,26 +43,14 @@ $config = [
             ],
         ],
         'db' => $db,
-        
+        /*
         'urlManager' => [
-//            'suffix' => '.html',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                [
-                    'pattern' => '',
-                    'route' => 'site/index',
-                    'suffix' => '',
-                ],
-//                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-//                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-//                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-//                'defaultRoute' => '/site/index',
-                '<action:(show|about|contact)>' => 'post/<action>',
-                '<action:(index)>' => 'site/<action>',
             ],
         ],
-        
+        */
     ],
     'params' => $params,
 ];
@@ -73,7 +58,6 @@ $config = [
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
-//    $config['layout'] = 'basic';  // !установка шаблона для всего сайта
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
@@ -84,7 +68,7 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-//        'allowedIPs' => ['127.0.0.1'],
+        //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 }
 
