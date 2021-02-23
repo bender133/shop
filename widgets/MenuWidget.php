@@ -7,6 +7,9 @@ namespace app\widgets;
 class MenuWidget extends \yii\base\Widget
 {
     public $tpl;
+    public $data;
+    public $tpl;
+    public $tpl;
 
     public function init()
     {
